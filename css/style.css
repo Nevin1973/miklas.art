@@ -1944,6 +1944,12 @@ button.mfp-arrow {
   color: #fff;
   margin-bottom: 30px;
 }
+.contact .info .item h4 {
+    color: #fff !important;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
 .contact .info .item {
   margin-bottom: 30px;
   color: #fff;
@@ -2114,4 +2120,248 @@ button.mfp-arrow {
     width: auto !important;      /* Prevents image distortion */
     margin: 0 auto;              /* Center the image */
     object-fit: contain;         /* Ensures the entire image is visible */
+}
+
+/* ----------------------------------------------------------------
+Miklas Gallery Styles
+---------------------------------------------------------------- */
+.miklas-photos .miklas-photo-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+.miklas-photos .miklas-photo-item:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.25);
+    z-index: 1;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    opacity: 0;
+    visibility: hidden;
+}
+.miklas-photos .miklas-photo-item .photo-text-more {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: 30px;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+.miklas-photos .miklas-photo-item .photo-text-more .ti-search {
+    color: #fff;
+    font-size: 20px;
+}
+.miklas-photos .miklas-photo-item .photo-text-more .heading {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.miklas-photos .miklas-photo-item .photo-text-more .meta {
+    color: #cccccc;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.miklas-photos .miklas-photo-item img {
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.miklas-photos .miklas-photo-item:hover:after {
+    opacity: 1;
+    visibility: visible;
+}
+.miklas-photos .miklas-photo-item:hover .photo-text-more {
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ----------------------------------------------------------------
+Portfolio Grid Overrides - Compact Multi-Column Layout
+---------------------------------------------------------------- */
+.portfolio-item {
+    padding: 5px; /* Tight, professional gaps */
+}
+.miklas-photo-item img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* Ensure images don't overflow columns */
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+.miklas-photo-item {
+    display: block;
+    margin-bottom: 20px !important;
+    aspect-ratio: 1 / 1; /* Perfect squares like Dorothea thumbnails */
+    overflow: hidden;
+    background-color: #000;
+}
+
+
+.miklas-photo-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+
+.miklas-photo-item:hover img {
+    transform: scale(1.08);
+}
+
+
+.portfolio-item {
+    padding: 10px !important;
+    margin-bottom: 0 !important;
+}
+
+
+.portfolio-info, .portfolio-overlay, .miklas-photo-item span {
+    display: none !important;
+}
+
+/* ----------------------------------------------------------------
+Uniform Grid (Squares) - Dorothea Look
+---------------------------------------------------------------- */
+.miklas-photo-item {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1; /* Perfect squares like Dorothea thumbnails */
+    overflow: hidden;
+}
+.miklas-photo-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* Prevents distortion */
+    transition: transform 0.6s ease;
+}
+
+/* Hover Overlay with Icon */
+.miklas-photo-item .gallery-info {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; transition: all 0.4s ease;
+}
+.miklas-photo-item:hover .gallery-info { opacity: 1; }
+.miklas-photo-item .gallery-info i {
+    color: #fff; font-size: 24px;
+    transform: translateY(20px); transition: all 0.4s ease;
+}
+.miklas-photo-item:hover .gallery-info i { transform: translateY(0); }
+.miklas-photo-item:hover img { transform: scale(1.1); }
+
+/* ----------------------------------------------------------------
+Progress Wrap (Scroll back to top)
+---------------------------------------------------------------- */
+.progress-wrap {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 46px;
+    width: 46px;
+    cursor: pointer;
+    display: block;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 200ms linear;
+}
+.progress-wrap.active-progress {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.progress-wrap::after {
+    position: absolute;
+    content: '\e627'; /* Thi-arrow-up icon code */
+    font-family: 'themify';
+    text-align: center;
+    line-height: 46px;
+    font-size: 20px;
+    color: #000; /* Arrow color */
+    left: 0;
+    top: 0;
+    height: 46px;
+    width: 46px;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+    transition: all 200ms linear;
+}
+.progress-wrap svg path {
+    fill: none;
+}
+.progress-wrap svg.progress-circle path {
+    stroke: #000; /* Progress ring color */
+    stroke-width: 4;
+    box-sizing: border-box;
+    transition: all 200ms linear;
+}
+
+/* ----------------------------------------------------------------
+Gallery Item Hover Effect - Dorothea Logic
+---------------------------------------------------------------- */
+.miklas-photos .miklas-photo-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.miklas-photos .miklas-photo-item .gallery-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better visibility */
+    opacity: 0;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    z-index: 100;
+}
+.miklas-photos .miklas-photo-item:hover .gallery-info {
+    opacity: 1;
+}
+.miklas-photos .miklas-photo-item .gallery-info i {
+    font-size: 30px;
+    color: #fff; /* Icon color */
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    opacity: 1; /* Ensure icon is visible when overlay is visible */
+}
+.miklas-photos .miklas-photo-item:hover .gallery-info i {
+    transform: translateY(0);
 }
