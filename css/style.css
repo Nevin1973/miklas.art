@@ -760,6 +760,15 @@ body.offcanvas .miklas-nav-toggle {
     .carousel-control-prev {
         width: 10%;
     }
+    
+    /* Fix mobile display for main slider images */
+    .yscott-img-home {
+        width: 80% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+        float: none !important;
+    }
 }
 
 /*** 20. MEDIA QUERY ***/
