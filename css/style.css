@@ -769,6 +769,15 @@ body.offcanvas .miklas-nav-toggle {
         margin: 0 auto !important;
         float: none !important;
     }
+    
+    /* Override slider behavior for carousel images */
+    .yscott-content-home .owl-carousel .item img.yscott-img-home {
+        float: none !important;
+        width: 80% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        height: auto !important;
+    }
 }
 
 /*** 20. MEDIA QUERY ***/
